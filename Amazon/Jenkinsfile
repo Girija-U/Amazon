@@ -2,11 +2,11 @@ pipeline {
     agent any
     environment {
         // Use PATH+EXTRA to append to PATH properly
-        PATH = "/home/giri/girija_repo/project_repo/Amazon/Amazon/Amazon-Web"
+        PROJECT_NAME = 'Amazon'
     }
     stages {
 
-        stage('pull') {
+        stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/Girija-U/Amazon.git'
             }
