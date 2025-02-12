@@ -9,6 +9,7 @@ pipeline {
         stage('pull') {
             steps {
                 git branch: 'master', url: 'https://github.com/Girija-U/Amazon/Amazon.git'
+                sh 'cd Amazon'
             }
         }
         stage('compile') {
