@@ -1,1 +1,42 @@
+pipeline {
+    agent any
+    environment {
+        // Use PATH+EXTRA to append to PATH properly
+        PROJECT_NAME = 'Amazon'
+    }
+    stages {
 
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Girija-U/Amazon/Amazon.git'
+            }
+        }
+        stage('compile') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+
+        stage('build') {
+            steps {
+                 sh 'mvn clean install'
+            }
+        }
+
+        
+    }
+
+  post{
+
+  success{
+     echo 'Build success'
+  }
+    
+  failure{
+       echo 'Failure in the build'
+   }
+
+  }
+
+
+}
