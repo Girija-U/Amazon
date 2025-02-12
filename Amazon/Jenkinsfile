@@ -6,7 +6,7 @@ pipeline {
     }
     stages {
 
-        stage('Checkout') {
+        stage('pull') {
             steps {
                 git branch: 'main', url: 'https://github.com/Girija-U/Amazon/Amazon.git'
             }
